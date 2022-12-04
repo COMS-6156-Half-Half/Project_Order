@@ -11,8 +11,8 @@ class OrderDB:
 
         conn = pymysql.connect(
             user="root",
-            password="12345678",
-            host="localhost",
+            password="13886003474cjw",
+            host="e61561.cwsqeuuovxq1.us-east-1.rds.amazonaws.com",
             cursorclass=pymysql.cursors.DictCursor,
             autocommit=True
         )
