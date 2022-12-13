@@ -20,7 +20,7 @@ class OrderDB:
 
     @staticmethod
     def insert_record(order_id, seller_id, product_id, buyer_id):
-        sql = "Insert into OrderRecord.record VALUES (%s, %s, %s, %s)"
+        sql = "Insert into Orders.record VALUES (%s, %s, %s, %s)"
         conn = OrderDB._get_connection()
         cur = conn.cursor()
         res = cur.execute(sql, args=[order_id, seller_id, product_id, buyer_id])
@@ -30,7 +30,7 @@ class OrderDB:
     @staticmethod
     def get_all():
 
-        sql = "SELECT * FROM OrderRecord.record"
+        sql = "SELECT * FROM Orders.record"
         conn = OrderDB._get_connection()
         cur = conn.cursor()
         res = cur.execute(sql)
@@ -40,7 +40,7 @@ class OrderDB:
 
     @staticmethod
     def get_by_sellerId(seller_id):
-        sql = "SELECT * FROM OrderRecord.record where seller_id=%s"
+        sql = "SELECT * FROM Orders.record where seller_id=%s"
         conn = OrderDB._get_connection()
         cur = conn.cursor()
         res = cur.execute(sql,args=seller_id)
@@ -50,7 +50,7 @@ class OrderDB:
 
     @staticmethod
     def get_by_buyerId(buyer_id):
-        sql = "SELECT * FROM OrderRecord.record where buyer_id=%s"
+        sql = "SELECT * FROM Orders.record where buyer_id=%s"
         conn = OrderDB._get_connection()
         cur = conn.cursor()
         res = cur.execute(sql, args=buyer_id)
@@ -60,7 +60,7 @@ class OrderDB:
 
     @staticmethod
     def delete_by_orderId(order_id):
-        sql = "DELETE from OrderRecord.record where order_id=%s"
+        sql = "DELETE from Orders.record where order_id=%s"
         conn = OrderDB._get_connection()
         cur = conn.cursor()
         res = cur.execute(sql, args=order_id)
