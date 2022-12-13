@@ -42,9 +42,10 @@ def insert_record():
     return rsp
 
 @app.route("/api/record/seller", methods=["GET"])
-def get_by_sellerId(seller_id):
+def get_by_sellerId():
     data = request.get_json()
     seller_id = int(data["seller_id"])
+    
     result = OrderDB.get_by_sellerId(seller_id)
 
     if result:
