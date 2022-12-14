@@ -55,7 +55,7 @@ def get_by_sellerId(seller_id):
     return rsp
 
 @app.route("/api/record/buyer/<buyer_id>", methods=["GET"])
-def get_by_buyerId():
+def get_by_buyerId(buyer_id):
     
     result = OrderDB.get_by_buyerId(buyer_id)
 
