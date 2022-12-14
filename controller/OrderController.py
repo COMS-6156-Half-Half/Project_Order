@@ -41,10 +41,9 @@ def insert_record():
 
     return rsp
 
-@app.route("/api/record/seller", methods=["GET"])
-def get_by_sellerId():
-    data = request.get_json()
-    seller_id = int(data["seller_id"])
+@app.route("/api/record/seller/<seller_id>", methods=["GET"])
+def get_by_sellerId(seller_id):
+
     
     result = OrderDB.get_by_sellerId(seller_id)
 
@@ -55,10 +54,8 @@ def get_by_sellerId():
 
     return rsp
 
-@app.route("/api/record/buyer", methods=["GET"])
+@app.route("/api/record/buyer/<buyer_id>", methods=["GET"])
 def get_by_buyerId():
-    data = request.get_json()
-    buyer_id = int(data["buyer_id"])
     
     result = OrderDB.get_by_buyerId(buyer_id)
 
