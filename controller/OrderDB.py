@@ -20,7 +20,7 @@ class OrderDB:
 
     @staticmethod
     def insert_record(seller_id, product_id, buyer_id):
-        sql = "Insert into orders.record VALUES (seller_id, product_id, buyer_id) VALUES (%s, %s, %s)"
+        sql = "Insert into orders.record (seller_id, product_id, buyer_id) VALUES (%s, %s, %s)"
         conn = OrderDB._get_connection()
         cur = conn.cursor()
         res = cur.execute(sql, args=[seller_id, product_id, buyer_id])
