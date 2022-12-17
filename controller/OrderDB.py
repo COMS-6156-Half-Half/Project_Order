@@ -19,11 +19,11 @@ class OrderDB:
         return conn
 
     @staticmethod
-    def insert_record(order_id, seller_id, product_id, buyer_id):
-        sql = "Insert into orders.record VALUES (%s, %s, %s, %s)"
+    def insert_record(seller_id, product_id, buyer_id):
+        sql = "Insert into orders.record VALUES (seller_id, product_id, buyer_id) VALUES (%s, %s, %s)"
         conn = OrderDB._get_connection()
         cur = conn.cursor()
-        res = cur.execute(sql, args=[order_id, seller_id, product_id, buyer_id])
+        res = cur.execute(sql, args=[seller_id, product_id, buyer_id])
 
         return res
 
