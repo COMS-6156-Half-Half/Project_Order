@@ -28,11 +28,10 @@ def get_all_record():
 @app.route("/api/record/insert", methods=["POST"])
 def insert_record():
     data = request.get_json()
-    id =int(data["id"])
     seller_id = int(data["seller_id"])
     product_id = int(data["product_id"])
     buyer_id = int(data["buyer_id"])
-    result = OrderDB.insert_record(id, seller_id, product_id, buyer_id)
+    result = OrderDB.insert_record(seller_id, product_id, buyer_id)
 
     if result:
         rsp = Response(json.dumps(result), status=200, content_type="application.json")
